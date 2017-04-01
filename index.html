@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Attendance Checker</title>
+        <link rel="icon" href="images/clipboard-checkmark.png">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -9,26 +10,30 @@
         <link rel="stylesheet" href="css/bootstrap.css">
     </head>
     <body>
+
+        <nav class="navbar navbar-light bg-faded">
+            <span class="navbar-brand" href="#">
+                <img src="images/clipboard-checkmark.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Attendance Checker
+            </span>
+        </nav>
+
         <div class="container">
             <div class="col-lg-6 offset-lg-3">
-                <h1 class="text-center">Attendance Checker</h1>
-                    <div class="row">
-                        <div class="col-lg-3 text-center">
+                <h1 class="text-center m-4">Sign In Sheet</h1>
+                    <div class="row my-4">
+                        <div class="col-lg-6">
                             <button class="btn btn-outline-primary">
                                 Previous
                             </button>
-                        </div>
-                        <div class="col-lg-3 text-center">
                             <button class="btn btn-outline-primary">
                                 Next
                             </button>
                         </div>
-                        <div class="col-lg-3 text-center">
+                        <div class="col-lg-6 text-right">
                             <button class="btn btn-outline-success">
                                 Add
                             </button>
-                        </div>
-                        <div class="col-lg-3 text-center">
                             <button class="btn btn-outline-danger">
                                 Delete
                             </button>
@@ -49,15 +54,27 @@
                                 </tr>
                                 <tr>
                                     <th>Last Name</th>
-                                    <td>Mark</td>
+                                    <td>Smith</td>
                                 </tr>
                                 <tr>
-                                    <th>3</th>
-                                    <td>Jacob</td>
+                                    <th>Year</th>
+                                    <td>M1</td>
                                 </tr>
                                 <tr>
-                                    <th>4</th>
-                                    <td>Larry the Bird</td>
+                                    <th>Department</th>
+                                    <td>Pediatrics</td>
+                                </tr>
+                                <tr>
+                                    <th>Phone</th>
+                                    <td>555-555-5555</td>
+                                </tr>
+                                <tr>
+                                    <th>Email</th>
+                                    <td>mark.smith@med.edu</td>
+                                </tr>
+                                <tr>
+                                    <th>Questions</th>
+                                    <td>Describe your research</td>
                                 </tr>
                           </tbody>
                         </table>
