@@ -9,8 +9,10 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.css">
     </head>
-    <body>
-
+    
+    <body ng-app="attendanceChecker" class="ng-scope">
+<!-- for ng-app, this directive auto-bootstraps an AngularJS application -->
+<!-- for ng-scope, when AngularJS evaluates {{item}}, it first looks at the scope associated with the given element for the 'item' property and if no such property is found, it searches the parent scope and so on until the root scope is reached -->
         <nav class="navbar navbar-light bg-faded">
             <span class="navbar-brand" href="#">
                 <img src="images/clipboard-checkmark.png" width="30" height="30" class="d-inline-block align-top" alt="">
@@ -18,23 +20,26 @@
             </span>
         </nav>
 
-        <div class="container">
+        <div class="container" ng-controller="attendeeProfileController" ngcloak>
+<!-- ngController directive attaches a controller class to the view (HTML with data bindings) -->
+<!-- ngCloak directive is used to prevent the AngularJS html template from being briefly displayed by the browser in its raw (uncompiled) form while your application is loading -->
             <div class="col-lg-6 offset-lg-3">
                 <h1 class="text-center m-4">Sign In Sheet</h1>
                     <div class="row my-4">
                         <div class="col-lg-6">
-                            <button class="btn btn-outline-primary">
+<!-- ngClick directive allows you to specify custom behavior when an element is clicked -->
+                            <button class="btn btn-outline-primary" ng-click="previousAttendee()">
                                 Previous
                             </button>
-                            <button class="btn btn-outline-primary">
+                            <button class="btn btn-outline-primary" ng-click="nextAttendee()>
                                 Next
                             </button>
                         </div>
                         <div class="col-lg-6 text-right">
-                            <button class="btn btn-outline-success">
+                            <button class="btn btn-outline-success" ng-click="addAttendee()">
                                 Add
                             </button>
-                            <button class="btn btn-outline-danger">
+                            <button class="btn btn-outline-danger" ng-click="deleteAttendee()">
                                 Delete
                             </button>
                         </div>
@@ -43,44 +48,68 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>#1</th>
+                                    <th>#{{attendee.Number}}</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th>First Name</th>
-                                    <td>Mark</td>
+                                    <td>
+                                        <input type="text" ng-model="attendee.FirstName" placeholder="Enter your first name here">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Last Name</th>
-                                    <td>Smith</td>
+                                    <td>
+                                        <input type="text" ng-model="attendee.LastName" placeholder="Enter your last name here">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Year</th>
-                                    <td>M1</td>
+                                    <td>
+                                        <input type="text" ng-model="attendee.Year" placeholder="Enter your class year here">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Department</th>
-                                    <td>Pediatrics</td>
+                                    <td>
+                                    <input type="text" ng-model="attendee.Department" placeholder="Enter your department/speciality here">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Phone</th>
-                                    <td>555-555-5555</td>
+                                    <td>
+                                    <input type="text" ng-model="attendee.Phone" placeholder="Enter your phone number here">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Email</th>
-                                    <td>mark.smith@med.edu</td>
+                                    <td>
+                                    <input type="text" ng-model="attendee.Email" placeholder="Enter your email here">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Questions</th>
-                                    <td>Describe your research</td>
+                                    <td><input type="text" ng-model="attendee.Questions" placeholder="Enter your questions here"></td>
                                 </tr>
                           </tbody>
                         </table>
                     </div>
             </div>
         </div>
+
+<style>
+    /* removes solid outline of input box */
+    input {display: block; padding: 0; margin: 0; border: 0; width: 100%;}
+    td {margin: 0; padding: 0;}
+    /* turn off border/outline color of input box when active */
+    textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {
+    border-color: rgba(255, 255, 255, 0.0);
+    box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.0) inset, 0 0 8px rgba(255, 255, 255, 0.0);
+    outline: 0 none;}
+    /* RGBA color value is specified with: rgba(red, green, blue, alpha), and the alpha parameter is a number between 0.0 (fully transparent) and 1.0 (fully opaque). */
+</style>
 
         <!-- jQuery first, then Bootstrap JS. -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
